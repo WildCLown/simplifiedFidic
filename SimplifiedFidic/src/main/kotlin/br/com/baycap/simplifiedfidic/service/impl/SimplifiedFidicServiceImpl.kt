@@ -89,7 +89,7 @@ class SimplifiedFidicServiceImpl() : SimplifiedFidicService {
 
         return SimplifiedFidicResultDto(
             type = FidicOperation.DISTRIBUTE_CASH,
-            totalDistributedE2 = fundCashE2,
+            totalDistributedE2 = (fundCashE2 - accumulatedLossToAbsorbE2).coerceAtLeast(0),
             distribution =
                 FidicDistributionDto(
                     lossAbsorbedE2 = results["lossAbsorbed"] ?: 0L,

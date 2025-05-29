@@ -20,7 +20,7 @@ class SimplifiedFidicController(
     fun distributeFidicCascade(
         @RequestBody request: List<FidicInstructionDto>,
     ): SimplifiedFidicResultDto? {
-        staticSimplifiedFidicValidation.validateDistributeCascate(request)
+        staticSimplifiedFidicValidation.validateDistributeCascade(request)
 
         val fidicInstructions = request.map { it.toModel() }
         return simplifiedFidicService.distributeFidicCascade(fidicInstructions)
