@@ -17,7 +17,7 @@ enum class FidicOperation(val id: Int) {
         @JsonCreator
         @JvmStatic
         fun fromJson(value: String): FidicOperation {
-            return values().find { it.name.equals(value, ignoreCase = true) }
+            return FidicOperation.entries.find { it.name.equals(value, ignoreCase = true) }
                 ?: throw IllegalArgumentException("Invalid FidicOperation value: $value")
         }
     }
