@@ -20,6 +20,16 @@ If not willing to run through Docker container, you can run using `JVM 21 and Gr
 But would recommend using Intellij IDEA, as it has a lot of features that ease development and run.
 
 Once service is up, you can post request the API through `http://localhost/api/simplifiedFidic`
+You can use one of PDF document examples as body Request.
+
+```JSON
+    [
+        { "type": "RECEIVE_CASH" , "amount": 120000000 },
+        { "type": "register_default" , "amount": 1000000 },
+        { "type": "distribute_cash" }
+    ]
+
+```
 
 ## Architecture
 
@@ -39,10 +49,10 @@ The Controller (Border) Has a single route:
 
 Internally Service has 2 different public functions.
 
-````
+```
     distributeFidicCascade
     processFidicInstruction
-````
+```
 
 This was decided aiming service evolution, to handle the fidic instructions as they are sent by other services through the day/week/month
 
